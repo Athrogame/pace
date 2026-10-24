@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pace Privacy Policy">
+  <title>Privacy Policy · Pace</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="legal-head"><a href="/">Pace</a><a href="/">Back to the app</a></header>
+  <main id="main">
+    <h1>Privacy Policy</h1>
+    <p class="effective">Effective October 24, 2026</p>
+    <p>Pace helps students fit assignments around school, work, activities, and sleep. This policy explains what Pace collects, why, and how to remove it. Contact the Pace operator at <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
+
+    <h2>Information Pace uses</h2>
+    <ul>
+      <li><strong>Plan information you enter:</strong> a random plan ID; an optional nickname; time zone, sleep goal, school and wake times, commute and study limits; shifts and activities; assignment titles, subjects, deadlines, estimates, and progress; time you log on assignments and any accepted estimate preferences; and daily sleep, energy, and stress check-ins.</li>
+      <li><strong>Planning, coach, and safety records:</strong> blocked times from <em>Something came up</em>; saved daily coach message text, mode, source, and time; a daily Decide coach request count; and timestamps for safety alerts. A safety marker does not store a copy of the text that triggered it. Pace does not save Decide chat questions or replies in its database.</li>
+      <li><strong>Account information:</strong> if you create a Pace account, a username, salted password hash, and hashed sign-in session tokens. The browser sends a session token in an HttpOnly, Secure, SameSite cookie, which page scripts cannot read. If you choose Google sign-in, Pace stores Google's stable account identifier. Pace does not retain the name or email address in Google's sign-in token.</li>
+      <li><strong>Optional Google Calendar import:</strong> Pace reads timed events for the next two weeks and saves their start and end times, a source marker, and the last import time. Event titles are saved only if you choose <em>Keep event names</em>; otherwise they are saved as “Busy.”</li>
+      <li><strong>Optional Google Tasks import:</strong> Pace reads unfinished task titles, list names, scheduled dates, and task IDs. Before saving, you choose the tasks and review their deadline, subject, type, and time estimate. Pace saves selected tasks and their Google IDs to avoid duplicates. Unselected tasks are not saved as assignments.</li>
+      <li><strong>Browser storage:</strong> after the age screen, this browser keeps a random anonymous plan ID, an optional Google profile photo URL, a running timer, and small interface preferences. Sign-in and age-status cookies are HttpOnly; the age cookie lasts up to one year. Pace does not use this storage for advertising.</li>
+      <li><strong>Parent consent:</strong> for an under-13 plan, Pace stores the parent or guardian email address, hashed consent links, and request, approval, and confirmation times. Pace does not save the child's birth month or year.</li>
+      <li><strong>Abuse prevention:</strong> Pace briefly keeps a cryptographic digest of a request's IP address and action to limit repeated sign-ins, sign-ups, Google sign-ins, and <em>Something came up</em> requests. It does not store the raw IP in this counter.</li>
+    </ul>
+
+    <h2>How Pace uses information</h2>
+    <p>Pace uses plan information to build a schedule, compare possible shifts, lighten a plan when needed, learn from time you log, and show you your own history. Check-in answers are used by Pace's rules to select a mode. For users 13 and older, Claude receives the selected mode and limited plan facts, such as task titles and times, to write a short coach message. It does not receive your nickname or individual check-in answers. Under-13 plans use local messages instead.</p>
+    <p>If you explicitly choose <em>with AI suggestions</em> during Google Tasks import, Pace sends task titles and Google list names to Claude to suggest a subject, assignment type, and time estimate. You can edit every suggestion. Choosing <em>without AI</em> uses Pace's local rules instead. Pace does not send Google access tokens to Claude.</p>
+    <p>If you use the Decide coach chat, Pace uses your question, the two options you enter, the current plan's sleep outlook, and broad sleep and energy bands from your latest check-in to compare them. For users 13 and older, these details may be sent to Claude to write the reply. Under-13 plans use local replies. Decide chat text is not saved in Pace's database; Pace keeps a daily request count to limit use. Messages indicating a crisis are routed to the resource page before an AI request, and Pace stores a safety-alert time so it can adjust the plan for the next 24 hours.</p>
+
+    <h2>Google access and sharing</h2>
+    <p>Google sign-in verifies your identity. Google Calendar and Google Tasks access are optional and read-only. Their access tokens stay in your browser while Pace reads the requested data and are revoked after that read; Pace's server does not store them. Pace does not modify your Google Calendar or Google Tasks.</p>
+    <p>Pace uses Render to host the app, Supabase PostgreSQL for deployed plan storage, and Brevo to deliver parent consent emails. It uses Anthropic's Claude API for the optional AI functions described above, and Google for sign-in and optional imports. Pace does not sell Google user data or use it for advertising, lending, or data brokerage. Google data is used only for the features you request. Pace's use and transfer of information received from Google APIs follows the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+
+    <h2>Retention and deletion</h2>
+    <p>Plan and account data remains until you delete it; Pace does not currently apply an automatic expiration date to assignments, check-ins, coach messages, or safety markers. A safety marker stops affecting the plan after 24 hours, but its record remains until deletion. Sign-in sessions stop working after 90 days; you can revoke them on all devices in Settings. Rate-limit counters older than a day are removed when Pace next handles a rate-limited request. You can remove imported Calendar events in Settings. You can delete your Pace plan and account with <em>Settings → Delete my data</em>; this removes your records, including parent consent records, from Pace's active database. Hosting-provider logs or separately created backups may follow their own retention schedules.</p>
+
+    <h2>Security</h2>
+    <p>Pace uses HTTPS on the deployed site, hashes passwords with a unique salt, stores only hashes of session tokens on the server, and keeps its database connection and AI key on the server. The deployed database uses an encrypted connection and a private schema. No online service can guarantee perfect security.</p>
+
+    <h2>Children</h2>
+    <p>Before an under-13 user can create a plan, Pace asks for a parent or guardian email address solely to request consent. Pace emails a direct notice and consent link, followed by a separate confirmation email. Until both steps are complete, the plan remains locked. Unapproved requests expire after seven days and their contact addresses are removed when Pace next runs its cleanup. Approved parent contact addresses remain until the child's plan is deleted. Pace does not save the child's birth month or year.</p>
+    <p>Under-13 plans cannot use Google sign-in, Google imports, or AI. Their plan data is used for local planning and is not public. A parent may email <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a> to review or delete a child's plan, revoke consent, or ask questions. Pace will confirm the requester's connection to the consent email before disclosing a plan. A revoked plan and its consent record are deleted.</p>
+
+    <h2>Changes and questions</h2>
+    <p>Pace may update this policy as its features or practices change. The effective date above will change when the policy changes. For privacy questions or deletion help, email <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
+  </main>
+  <footer class="legal-foot"><a href="/">Pace</a><a href="/terms">Terms of Service</a></footer>
+</body>
+</html>

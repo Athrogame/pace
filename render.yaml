@@ -1,0 +1,36 @@
+# Render Blueprint: a free web service with durable data in external PostgreSQL.
+# Configure PACE_DATABASE_URL with a Supabase Session pooler connection string before deploy.
+services:
+  - type: web
+    name: pace
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && pip install pip-audit==2.10.1 && pip-audit -r requirements.txt
+    # Re-seeds the demo user on every start, so ?as=demo always works for the video.
+    startCommand: python -m backend.seed_demo && uvicorn backend.main:app --host 0.0.0.0 --port $PORT --no-access-log
+    healthCheckPath: /safety
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: AI_API_KEY
+        sync: false   # Render asks you for this; it never lives in the repo
+      - key: GOOGLE_CLIENT_ID
+        sync: false   # optional: turns on "Continue with Google"
+      - key: PACE_DATABASE_URL
+        sync: false   # required: server-only PostgreSQL connection string, never in frontend code
+      - key: PACE_CONTACT_EMAIL
+        value: "aydinakmal2011@gmail.com"   # public Terms, Privacy, and parent contact
+      - key: PACE_REQUIRE_AGE_GATE
+        value: "1"     # require age screen and parent email confirmation before child plans
+      - key: PACE_AGE_GATE_SECRET
+        generateValue: true   # Render generates a server secret; never in frontend code
+      - key: PACE_BREVO_API_KEY
+        sync: false   # HTTPS email API works on Render Free, which blocks SMTP ports
+      - key: PACE_BREVO_SENDER
+        sync: false
+      - key: PACE_REQUIRE_LEGAL_CONTACT
+        value: "1"     # refuse to launch a public app with incomplete legal pages
+      - key: PACE_REQUIRE_DURABLE_DB
+        value: "1"     # refuse to start rather than silently lose plans on Render's ephemeral disk
+      - key: PACE_DEMO_NOW
+        value: "2026-10-19T15:30:00"   # only the shared demo is pinned for the judging walkthrough

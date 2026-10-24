@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Parent approval · Pace</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+  <header class="legal-head"><a href="/">Pace</a><a href="/privacy-policy">Privacy Policy</a></header>
+  <main id="main">
+    <h1>Parent or guardian approval</h1>
+    <p>Pace is a student planner. For an under-13 plan, Pace stores school and wake times, assignments, activities, work logs, and optional sleep, energy, and stress check-ins. It uses that information to make schedules and local coach messages.</p>
+    <p>Under-13 plans cannot use Google sign-in, Google Calendar or Tasks imports, or AI. They are not public. Render hosts Pace, and Supabase stores deployed plans. Read the <a href="/privacy-policy">Privacy Policy</a> for details.</p>
+    <p>By approving, you allow this collection and use. You can ask to review or delete the child's plan, or revoke consent at any time, by emailing <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>. You will receive a follow-up email to confirm this choice.</p>
+    <button id="approve" type="button" class="btn btn-primary">I am the parent or guardian and I consent</button>
+    <p id="result" role="status" aria-live="polite"></p>
+    <p>If you did not request this, close this page. The request expires after seven days.</p>
+  </main>
+  <script type="module" src="/parent-approval.js"></script>
+</body>
+</html>
