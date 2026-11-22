@@ -7,6 +7,9 @@ takes, and backs off when you're running on empty.
 **Pace is live:** [Open the app](https://pace-dus1.onrender.com/). The public deployment
 uses Render and Supabase, with the age and parent-consent flow enabled.
 
+**Vercel staging:** [Open the migration preview](https://pace-git-vercel-migration-athrogame.vercel.app/).
+The preview is for migration testing. Database access and sign-in must be verified before cutover.
+
 - **Backend:** Python 3.11+, FastAPI, SQLite locally or PostgreSQL when deployed
 - **Durable deployment storage:** PostgreSQL (including Supabase) through `PACE_DATABASE_URL`.
   Local development still uses SQLite when that variable is unset.
