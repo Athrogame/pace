@@ -177,7 +177,12 @@ export function googleButton({ onSignedIn, text = "continue_with" }) {
     }
     try {
       const google = await loadGsi();
-      google.accounts.id.initialize({ client_id: cfg.google_client_id, callback: handle, ux_mode: "popup" });
+      google.accounts.id.initialize({
+        client_id: cfg.google_client_id,
+        callback: handle,
+        ux_mode: "popup",
+        use_fedcm_for_button: true,
+      });
       slot.replaceChildren();
       // Google's white "outline" button reads clearly on both the light and dark themes.
       google.accounts.id.renderButton(slot, {
