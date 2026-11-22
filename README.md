@@ -4,11 +4,10 @@ A planner and AI coach for students with jobs. It fits homework around school, s
 sleep, shows the cost of an extra shift before you say yes, learns how long your work really
 takes, and backs off when you're running on empty.
 
-**Pace is live:** [Open the app](https://pace-dus1.onrender.com/). The public deployment
-uses Render and Supabase, with the age and parent-consent flow enabled.
+**Vercel staging:** [Open Pace on Vercel](https://pace-git-vercel-migration-athrogame.vercel.app/).
+The staging app connects to the existing Supabase database. Google sign-in and parent-consent email are pending verification.
 
-**Vercel staging:** [Open the migration preview](https://pace-git-vercel-migration-athrogame.vercel.app/).
-The preview is for migration testing. Database access and sign-in must be verified before cutover.
+**Current production:** [Open Pace on Render](https://pace-dus1.onrender.com/).
 
 - **Backend:** Python 3.11+, FastAPI, SQLite locally or PostgreSQL when deployed
 - **Durable deployment storage:** PostgreSQL (including Supabase) through `PACE_DATABASE_URL`.
@@ -192,7 +191,8 @@ To enable Google sign-in on your own deployment, add a Google Client ID:
    your email, and add your testers' Google accounts under **Test users** (fine for a pilot).
 3. **APIs & Services → Credentials → Create credentials → OAuth client ID**, type **Web
    application**. Under **Authorized JavaScript origins** add `http://localhost:8000`,
-   `http://localhost`, and your Render URL (e.g. `https://pace-xxxx.onrender.com`).
+   `http://localhost`, and the exact origin for each deployment where Google sign-in is enabled.
+   For Vercel staging, use `https://pace-git-vercel-migration-athrogame.vercel.app`.
 4. Copy the Client ID into `.env` as `GOOGLE_CLIENT_ID=...` (and into Render's Environment tab).
    Restart the server.
 
